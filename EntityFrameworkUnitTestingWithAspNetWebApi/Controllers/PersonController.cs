@@ -17,17 +17,17 @@ namespace EntityFrameworkUnitTestingWithAspNetWebApi.Controllers
         private readonly ForBlogContext _context = null;
         private readonly IBaseRepository<Person> _baseRepository = null;
         private readonly IPersonRepository _personRepository = null;
-        public PersonController(ForBlogContext context,IBaseRepository<Person> baseRepository, IPersonRepository personRepository)
-        {           
-            _context = context;
+        public PersonController( IBaseRepository<Person> baseRepository, IPersonRepository personRepository)//ForBlogContext context,
+        {
+            //_context = context;
             _baseRepository = personRepository;
             _personRepository = personRepository;
 
         }
-        public PersonController()
-        {
+        //public PersonController()
+        //{
 
-        }
+        //}
         // GET: api/Person
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Person>>> GetPerson()
@@ -43,14 +43,14 @@ namespace EntityFrameworkUnitTestingWithAspNetWebApi.Controllers
         {
             if (person == null)
                 throw new NullReferenceException("The person object being created cannot be null");
-            
-                    _personRepository.Create(person);
+
+            _personRepository.Create(person);
 
             //_context.Person.Add(person);
             //_context.SaveChanges();
         }
         // GET: api/Person/5
-        [HttpGet("{idNumber}")] 
+        [HttpGet("{idNumber}")]
         public async Task<Person> GetPersonFindByIDNumber(string idNumber)
         {
             return _personRepository.FindByIDNumber(idNumber).SingleOrDefault();
@@ -61,13 +61,13 @@ namespace EntityFrameworkUnitTestingWithAspNetWebApi.Controllers
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPerson(int id, Person person)
-        {          
+        {
             return null;
-        } 
+        }
         // DELETE: api/Person/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Person>> DeletePerson(Guid id)
-        { 
+        {
             return null;
         }
 

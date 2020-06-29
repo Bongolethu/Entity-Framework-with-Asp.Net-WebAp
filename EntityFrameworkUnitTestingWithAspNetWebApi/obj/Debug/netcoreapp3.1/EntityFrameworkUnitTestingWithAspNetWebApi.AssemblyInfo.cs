@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("7fd3c853-203e-461d-8b59-675a8096d3d7")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("EntityFrameworkUnitTestingWithAspNetWebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
